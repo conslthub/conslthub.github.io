@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conslthub | Expert Hub</title>
+  <title>ConsltHub | مجمع الخبراء</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Cairo', sans-serif;
       background-color: #f8f9fa;
       color: #333;
+      direction: rtl;
     }
     header {
       background-color: #002b5c;
@@ -63,74 +64,101 @@
       font-size: 2rem;
       font-weight: bold;
     }
+    .counters {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .counter-box {
+      flex: 1;
+      min-width: 200px;
+      margin: 1rem;
+    }
+    .counter-box h2 {
+      font-size: 2.5rem;
+      color: #014080;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Conslthub Logo" height="60">
-    <h1>Conslthub - Expert Hub</h1>
-    <p>Connecting you with specialized experts in technology, law, finance, and more.</p>
+    <img src="logo.png" alt="شعار كونسلت هاب" height="60">
+    <h1>ConsltHub - مجمع الخبراء</h1>
+    <p>نربطك بنخبة من الخبراء المتخصصين في التقنية، القانون، المال والمزيد</p>
   </header>
 
   <div class="banner">
-    Your trusted gateway to expert consultancy
+    منصتك الموثوقة للاستشارات الاحترافية
   </div>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#sectors">Sectors</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">من نحن</a>
+    <a href="#services">الخدمات</a>
+    <a href="#sectors">التخصصات</a>
+    <a href="#contact">تواصل معنا</a>
   </nav>
 
-  <section id="home">
-    <h2 class="section-title">Welcome to Conslthub</h2>
-    <p>
-      Conslthub connects businesses, legal entities, and individuals with verified experts in IT, telecom, digital evidence, financial analysis, intellectual property, and broadcasting technologies.
-    </p>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <p>
-      We are a professional network of certified consultants providing in-depth technical and legal insights across high-demand sectors. Our mission is to deliver reliable and objective expertise tailored to your case or business needs.
-    </p>
-  </section>
-
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="card">Digital forensics and data recovery</div>
-    <div class="card">Call data and telecom signal analysis</div>
-    <div class="card">Technical reports for courts and legal authorities</div>
-    <div class="card">IT consultancy and security solutions</div>
-    <div class="card">Financial market analysis and reporting</div>
-    <div class="card">Intellectual property investigations</div>
-  </section>
-
-  <section id="sectors">
-    <h2 class="section-title">Our Sectors</h2>
-    <ul>
-      <li>Information Technology & Digital Forensics</li>
-      <li>Telecom & Signal Tracking</li>
-      <li>Broadcast Engineering & Satellite Systems</li>
-      <li>Copyright & Intellectual Property</li>
-      <li>Stock Exchange & Capital Markets</li>
-      <li>Corporate Accounting & Financial Auditing</li>
-    </ul>
+  <section class="counters">
+    <div class="counter-box">
+      <h2><span data-count="50">0</span>+</h2>
+      <p>عدد الخبراء</>
+    </div>
+    <div class="counter-box">
+      <h2><span data-count="120">0</span>+</h2>
+      <p>عدد العملاء</p>
+    </div>
+    <div class="counter-box">
+      <h2><span data-count="300">0</span>+</h2>
+      <p>عدد القضايا المنجزة</p>
+    </div>
+    <div class="counter-box">
+      <h2><span data-count="500">0</span>+</h2>
+      <p>عدد التقارير الفنية</p>
+    </div>
   </section>
 
   <section id="contact">
-    <h2 class="section-title">Contact Us</h2>
+    <h2 class="section-title">تواصل معنا</h2>
     <p>
-      📧 Email: info@conslthub.com<br>
-      📞 Phone: +20xxxxxxx<br>
-      📱 WhatsApp: +2010xxxxxxx
+      📧 البريد الإلكتروني: info@conslthub.com<br>
+      📞 الهاتف: +201000600777<br>
+      📱 واتساب:   201276633286
     </p>
   </section>
 
+  <a href="https://wa.me/201000600777" style="position:fixed;bottom:80px;right:20px;z-index:1000;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50" alt="WhatsApp">
+  </a>
+  <a href="https://wa.me/201276633286" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50" alt="WhatsApp">
+  </a>
+
   <footer>
-    All rights reserved © Conslthub 2025
+    جميع الحقوق محفوظة © Conslthub 2025
   </footer>
+
+  <script>
+    const counters = document.querySelectorAll('[data-count]');
+    counters.forEach(counter => {
+      let start = 0;
+      const end = +counter.getAttribute('data-count');
+      const step = Math.ceil(end / 100);
+      const duration = 1000;
+      const incrementTime = duration / (end / step);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= end) {
+          counter.textContent = end;
+          clearInterval(timer);
+        } else {
+          counter.textContent = start;
+        }
+      }, incrementTime);
+    });
+  </script>
 </body>
 </html>
